@@ -6,7 +6,7 @@ const palettes = {
   wednesday: { skin: '#e3c5b5', hair: '#17171b', main: '#25262c', accent: '#aeb8c6' },
 };
 
-function svgUrl(body: string): string {
+function svgUrl(body: string, viewBox = '0 0 600 900'): string {
   return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900">' + body + '</svg>'
   );
@@ -64,7 +64,7 @@ function garmentSvg(id: string): string {
       ? '<path d="M175 170 Q300 120 425 170 L465 330 L365 370 L335 245 L265 245 L235 370 L135 330Z" fill="' + c + '" stroke="' + t + '" stroke-width="10"/>'
       : '<path d="M110 190 Q300 80 490 190 L455 240 Q300 150 145 240Z" fill="' + c + '" stroke="' + t + '" stroke-width="9"/><circle cx="300" cy="205" r="55" fill="none" stroke="' + t + '" stroke-width="12"/>';
   }
-  return svgUrl(shape);
+  return svgUrl(shape, '0 0 600 600');
 }
 
 export function wardrobeArt(id: string): string {
