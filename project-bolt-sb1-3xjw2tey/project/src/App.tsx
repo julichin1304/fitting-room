@@ -4,9 +4,13 @@ type Persona = 'barbie' | 'catwoman' | 'wednesday';
 type Choice = { label: string; detail: string; persona: Persona };
 type Question = { eyebrow: string; title: string; note: string; choices: Choice[] };
 
-const personas: Record<Persona, { name: string; tagline: string; description: string; style: string; palette: string; image: string; fallback: string; quote: string; }> = {
+const personas: Record<Persona, { name: string; tagline: string; description: string; style: string; palette: string; temperament: string; mediaTitle: string; channels: string; advertising: string; image: string; fallback: string; quote: string; }> = {
   barbie: {
     name: 'BARBIE', tagline: 'The main character energy',
+    temperament: 'Сангвиник — открытая, общительная, эмоциональная, легко увлекает за собой.',
+    mediaTitle: 'Широкий охват и эмоциональное вовлечение',
+    channels: 'Telegram-каналы о моде и lifestyle · соцсети · блогеры и инфлюенсеры · digital-реклама · наружные размещения',
+    advertising: 'Внешняя: рекламные интеграции у блогеров, digital-баннеры, наружная реклама. Внутренняя: собственные соцсети бренда, Telegram, рассылки и активности для подписчиков.',
     description: 'Ты умеешь превращать повседневность в маленькое событие. Тебе близки яркие впечатления, открытость и смелое самовыражение. Ты не ждёшь повода сиять — ты сама его создаёшь.',
     style: 'Glamour · Pink accents · Statement details',
     palette: 'Розовый / молочный / сияющий',
@@ -16,6 +20,10 @@ const personas: Record<Persona, { name: string; tagline: string; description: st
   },
   catwoman: {
     name: 'ЖЕНЩИНА-КОШКА', tagline: 'The art of independence',
+    temperament: 'Холерик — решительная, самостоятельная, уверенная, действует целенаправленно.',
+    mediaTitle: 'Точное позиционирование и сильный визуальный образ',
+    channels: 'Таргетированная digital-реклама · fashion-медиа · тематические сообщества · имиджевые спецпроекты · наружная реклама в точках контакта с целевой аудиторией',
+    advertising: 'Внешняя: размещения в fashion-медиа, таргет, имиджевые digital-форматы и наружная реклама. Внутренняя: сайт и приложение бренда, собственные визуальные рубрики и специальные проекты.',
     description: 'Ты ценишь свободу, личные границы и право выбирать собственный маршрут. Твоя уверенность не нуждается в громких заявлениях: в ней есть спокойствие, точность и немного загадки.',
     style: 'Power dressing · Total black · Sharp silhouettes',
     palette: 'Чёрный / графит / винный',
@@ -25,6 +33,10 @@ const personas: Record<Persona, { name: string; tagline: string; description: st
   },
   wednesday: {
     name: 'УЭНСДЭЙ', tagline: 'A beautiful contradiction',
+    temperament: 'Меланхолик — наблюдательная, вдумчивая, сдержанная, ценит глубину и смысл.',
+    mediaTitle: 'Нишевое продвижение и содержательная коммуникация',
+    channels: 'Тематические Telegram-каналы · редакционные и нативные публикации · блоги о культуре и искусстве · подкасты · собственные digital-площадки бренда',
+    advertising: 'Внешняя: нативные статьи, тематические Telegram-размещения, интеграции в подкастах и профильных медиа. Внутренняя: редакционные материалы бренда, блог, Telegram и другие собственные площадки.',
     description: 'Ты замечаешь то, что другие пропускают, и не стремишься быть удобной или понятной всем. Тебя привлекают глубина, ирония и необычные решения. Твоя индивидуальность — твоя суперсила.',
     style: 'Dark academia · Monochrome · Unusual accents',
     palette: 'Чёрный / белый / холодный серый',
@@ -154,6 +166,9 @@ export default function App() {
           <p className="result-tagline">{profile.tagline}</p>
           <div className="result-line"/>
           <p className="result-description">{profile.description}</p>
+          <div className="style-box"><span>ТВОЙ ТЕМПЕРАМЕНТ</span><b>{profile.temperament}</b></div>
+          <div className="style-box"><span>МЕДИАПОДХОД</span><b>{profile.mediaTitle}</b><small>{profile.channels}</small></div>
+          <div className="style-box"><span>РЕКЛАМНЫЕ ИНСТРУМЕНТЫ</span><b>{profile.advertising}</b></div>
           <div className="style-box"><span>YOUR STYLE CODE</span><b>{profile.style}</b><small>COLOR STORY: {profile.palette}</small></div>
           <blockquote>“{profile.quote}”</blockquote>
           <button className="primary-button" onClick={start}>ПРОЙТИ ЕЩЁ РАЗ <span>↗</span></button>
