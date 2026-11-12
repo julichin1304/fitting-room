@@ -1,39 +1,161 @@
-import { useCallback, useEffect, useState } from 'react';
-import Welcome from '@/screens/Welcome';
-import Quiz from '@/screens/Quiz';
-import Result from '@/screens/Result';
-import Characters from '@/screens/Characters';
-import FittingRoom from '@/screens/FittingRoom';
-import { ScreenProvider, type Screen } from '@/screens/ScreenContext';
-import type { QuizOptionKey } from '@/data/characters';
+import { useMemo, useState } from 'react';
 
-const EMPTY_ANSWERS: (QuizOptionKey | null)[] = [null, null, null, null, null];
+type Persona = 'barbie' | 'catwoman' | 'wednesday';
+type Choice = { label: string; detail: string; persona: Persona };
+type Question = { eyebrow: string; title: string; note: string; choices: Choice[] };
+
+const personas: Record<Persona, { name: string; tagline: string; description: string; style: string; palette: string; image: string; quote: string; }> = {
+  barbie: {
+    name: 'BARBIE', tagline: 'The main character energy',
+    description: 'Ты умеешь превращать повседневность в маленькое событие. Тебе близки яркие впечатления, открытость и смелое самовыражение. Ты не ждёшь повода сиять — ты сама его создаёшь.',
+    style: 'Glamour · Pink accents · Statement details',
+    palette: 'Розовый / молочный / сияющий',
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1100&q=85',
+    quote: 'Жизнь — твой личный подиум. Не забывай занимать центральное место.'
+  },
+  catwoman: {
+    name: 'ЖЕНЩИНА-КОШКА', tagline: 'The art of independence',
+    description: 'Ты ценишь свободу, личные границы и право выбирать собственный маршрут. Твоя уверенность не нуждается в громких заявлениях: в ней есть спокойствие, точность и немного загадки.',
+    style: 'Power dressing · Total black · Sharp silhouettes',
+    palette: 'Чёрный / графит / винный',
+    image: 'https://images.unsplash.com/photo-1769347557807-1fd1bb0d7ba2?auto=format&fit=crop&fm=jpg&q=85&w=1400',
+    quote: 'Самое сильное заявление — оставаться верной себе.'
+  },
+  wednesday: {
+    name: 'УЭНСДЭЙ', tagline: 'A beautiful contradiction',
+    description: 'Ты замечаешь то, что другие пропускают, и не стремишься быть удобной или понятной всем. Тебя привлекают глубина, ирония и необычные решения. Твоя индивидуальность — твоя суперсила.',
+    style: 'Dark academia · Monochrome · Unusual accents',
+    palette: 'Чёрный / белый / холодный серый',
+    image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=1100&q=85',
+    quote: 'Быть не как все — не стратегия. Это твоя естественная настройка.'
+  }
+};
+
+const questions: Question[] = [
+  { eyebrow: '01 / FIRST IMPRESSION', title: 'Как ты обычно входишь в новую компанию?', note: 'Выбирай то, что ближе именно тебе.', choices: [
+    { label: 'С улыбкой и энергией', detail: 'Легко знакомлюсь и задаю настроение', persona: 'barbie' },
+    { label: 'Спокойно оцениваю обстановку', detail: 'Сначала присматриваюсь к людям', persona: 'catwoman' },
+    { label: 'Держусь особняком', detail: 'Мне комфортно быть наблюдателем', persona: 'wednesday' }
+  ]},
+  { eyebrow: '02 / YOUR RULES', title: 'Что для тебя важнее всего?', note: 'Нет правильных или неправильных ответов.', choices: [
+    { label: 'Самовыражение', detail: 'Хочу жить ярко и быть заметной', persona: 'barbie' },
+    { label: 'Независимость', detail: 'Сама решаю, что мне подходит', persona: 'catwoman' },
+    { label: 'Индивидуальность', detail: 'Не хочу подстраиваться под ожидания', persona: 'wednesday' }
+  ]},
+  { eyebrow: '03 / SOCIAL ENERGY', title: 'Идеальный вечер — это…', note: 'Представь, что завтра никуда не нужно.', choices: [
+    { label: 'Встреча, музыка и новые впечатления', detail: 'Чем больше эмоций, тем лучше', persona: 'barbie' },
+    { label: 'Стильное место и близкий круг', detail: 'Качество важнее количества', persona: 'catwoman' },
+    { label: 'Книга, кино или прогулка наедине', detail: 'Тишина тоже может быть роскошью', persona: 'wednesday' }
+  ]},
+  { eyebrow: '04 / STYLE DNA', title: 'Как ты выбираешь образ?', note: 'Твой стиль — ещё один способ говорить о себе.', choices: [
+    { label: 'Добавляю акцент и настроение', detail: 'Цвет, детали, эффектный выход', persona: 'barbie' },
+    { label: 'Выбираю чёткий силуэт', detail: 'Минимализм и уверенная подача', persona: 'catwoman' },
+    { label: 'Ищу необычное сочетание', detail: 'Люблю характерные и немного странные вещи', persona: 'wednesday' }
+  ]},
+  { eyebrow: '05 / UNDER PRESSURE', title: 'Если возникает конфликт, ты…', note: 'Первая естественная реакция.', choices: [
+    { label: 'Стараюсь всё обсудить', detail: 'Мне важно восстановить контакт', persona: 'barbie' },
+    { label: 'Чётко обозначаю границы', detail: 'Не позволяю нарушать мои правила', persona: 'catwoman' },
+    { label: 'Сначала анализирую ситуацию', detail: 'Эмоции не должны мешать выводам', persona: 'wednesday' }
+  ]},
+  { eyebrow: '06 / INSPIRATION', title: 'Что тебя вдохновляет?', note: 'Выбирай свой источник энергии.', choices: [
+    { label: 'Люди, события и новые места', detail: 'Мир полон возможностей', persona: 'barbie' },
+    { label: 'Цели и ощущение контроля', detail: 'Мне нравится самой выбирать направление', persona: 'catwoman' },
+    { label: 'Искусство, идеи и необычные истории', detail: 'Люблю искать скрытые смыслы', persona: 'wednesday' }
+  ]},
+  { eyebrow: '07 / YOUR SIGNATURE', title: 'Какое описание тебе ближе?', note: 'Последний штрих — и узнаем твой archetype.', choices: [
+    { label: 'Солнечная и открытая', detail: 'Моя энергия объединяет людей', persona: 'barbie' },
+    { label: 'Самостоятельная и уверенная', detail: 'Я выбираю себя и свой путь', persona: 'catwoman' },
+    { label: 'Наблюдательная и необычная', detail: 'Мне не нужно всеобщее одобрение', persona: 'wednesday' }
+  ]}
+];
+
+function Masthead() {
+  return <header className="masthead">
+    <div className="masthead-top"><span>THE DIGITAL FASHION ISSUE</span><span>VOL. 01 — SPECIAL PROJECT</span><span>EST. 2026</span></div>
+    <div className="masthead-logo">VOGUE<span className="logo-dot">.</span></div>
+    <div className="masthead-bottom"><span>FASHION × PERSONALITY</span><span>МОЙ СТИЛЬ. МОЙ ХАРАКТЕР.</span><span>MEDIA PROJECT</span></div>
+  </header>;
+}
 
 export default function App() {
-  const [screen, setScreen] = useState<Screen>({ id: 'welcome' });
-  const [answers, setAnswers] = useState<(QuizOptionKey | null)[]>(EMPTY_ANSWERS);
+  const [screen, setScreen] = useState<'welcome' | 'quiz' | 'result'>('welcome');
+  const [step, setStep] = useState(0);
+  const [answers, setAnswers] = useState<Persona[]>([]);
+  const [imageFailed, setImageFailed] = useState(false);
 
-  const go = useCallback((next: Screen) => {
-    setScreen(next);
-  }, []);
+  const result = useMemo<Persona>(() => {
+    const counts: Record<Persona, number> = { barbie: 0, catwoman: 0, wednesday: 0 };
+    answers.forEach(a => counts[a]++);
+    const max = Math.max(counts.barbie, counts.catwoman, counts.wednesday);
+    const tied = (Object.keys(counts) as Persona[]).filter(k => counts[k] === max);
+    return tied.length === 1 ? tied[0] : (answers.slice().reverse().find(a => tied.includes(a)) || 'barbie');
+  }, [answers]);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
-  }, [screen]);
+  const start = () => { setAnswers([]); setStep(0); setImageFailed(false); setScreen('quiz'); };
+  const choose = (persona: Persona) => {
+    const next = [...answers, persona];
+    setAnswers(next);
+    if (step === questions.length - 1) { setImageFailed(false); setScreen('result'); }
+    else setStep(step + 1);
+  };
+  const current = questions[step];
+  const profile = personas[result];
 
-  return (
-    <ScreenProvider value={{ screen, go }}>
-      <div key={screen.id + (screen.id === 'fitting-room' ? screen.characterId : '')} className="screen-fade min-h-screen">
-        {screen.id === 'welcome' && <Welcome />}
-        {screen.id === 'quiz' && (
-          <Quiz answers={answers} onChangeAnswers={setAnswers} />
-        )}
-        {screen.id === 'result' && <Result answers={answers} />}
-        {screen.id === 'characters' && <Characters />}
-        {screen.id === 'fitting-room' && (
-          <FittingRoom characterId={screen.characterId} />
-        )}
+  return <main className="site-shell">
+    <Masthead />
+    {screen === 'welcome' && <section className="cover-layout">
+      <div className="cover-copy">
+        <p className="kicker">VOGUE PRESENTS · INTERACTIVE EDITION</p>
+        <h1>WHO<br/><em>ARE</em><br/>YOU?</h1>
+        <div className="cover-rule"/>
+        <p className="cover-lead">ТВОЙ ХАРАКТЕР — ТВОЙ СТИЛЬ</p>
+        <p className="cover-text">Три fashion-иконы. Семь вопросов. Один archetype, который отражает твою индивидуальность.</p>
+        <button className="primary-button" onClick={start}>ПРОЙТИ ТЕСТ <span>↗</span></button>
+        <p className="cover-foot">7 ВОПРОСОВ <i>·</i> 2 МИНУТЫ <i>·</i> 3 РЕЗУЛЬТАТА</p>
       </div>
-    </ScreenProvider>
-  );
+      <div className="cover-visual">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=90" alt="Fashion editorial portrait" />
+        <div className="cover-stamp">THE<br/>NEW<br/><b>YOU</b></div>
+        <div className="cover-caption"><span>FASHION IS<br/>AN ATTITUDE</span><span>ISSUE № 01<br/>2026</span></div>
+      </div>
+      <div className="cover-side-note">A STUDY IN PERSONAL STYLE — 2026</div>
+    </section>}
+
+    {screen === 'quiz' && <section className="quiz-wrap">
+      <div className="quiz-intro"><p className="kicker">THE PERSONALITY EDIT / {String(step + 1).padStart(2,'0')} OF 07</p><h1>Найди свой <em>образ.</em></h1><p>Отвечай интуитивно — здесь нет неправильных вариантов.</p></div>
+      <div className="progress-track"><span style={{ width: ((step + 1) / questions.length * 100) + '%' }}/></div>
+      <article className="question-card">
+        <div className="question-number">QUESTION {String(step + 1).padStart(2,'0')}</div>
+        <h2>{current.title}</h2><p className="question-note">{current.note}</p>
+        <div className="choices">{current.choices.map((choice, i) => <button className="choice" key={choice.persona} onClick={() => choose(choice.persona)}>
+          <span className="choice-index">0{i + 1}</span><span className="choice-text"><b>{choice.label}</b><small>{choice.detail}</small></span><span className="choice-arrow">↗</span>
+        </button>)}</div>
+        <div className="quiz-bottom"><button className="text-button" onClick={() => step === 0 ? setScreen('welcome') : (setStep(step - 1), setAnswers(answers.slice(0,-1)))}>← НАЗАД</button><span>{step + 1} / {questions.length}</span></div>
+      </article>
+      <p className="quiz-disclaimer">VOGUE DIGITAL SPECIAL · РАЗВЛЕКАТЕЛЬНЫЙ ТЕСТ НА ОСНОВЕ СТИЛЕВЫХ АРХЕТИПОВ</p>
+    </section>}
+
+    {screen === 'result' && <section className="result-wrap">
+      <div className="result-heading"><p className="kicker">YOUR PERSONALITY, YOUR EDITION</p><h1>ТВОЙ FASHION-<em>ПОРТРЕТ</em></h1></div>
+      <div className="result-grid">
+        <div className="result-image">
+          {!imageFailed ? <img src={profile.image} alt={'Fashion editorial — ' + profile.name} onError={() => setImageFailed(true)} /> : <div className="image-fallback"><span>{profile.name}</span></div>}
+          <span className="image-credit">EDITORIAL MOODBOARD · VOGUE DIGITAL</span>
+        </div>
+        <div className="result-copy">
+          <p className="kicker">YOUR ARCHETYPE IS</p>
+          <h2>{profile.name}</h2>
+          <p className="result-tagline">{profile.tagline}</p>
+          <div className="result-line"/>
+          <p className="result-description">{profile.description}</p>
+          <div className="style-box"><span>YOUR STYLE CODE</span><b>{profile.style}</b><small>COLOR STORY: {profile.palette}</small></div>
+          <blockquote>“{profile.quote}”</blockquote>
+          <button className="primary-button" onClick={start}>ПРОЙТИ ЕЩЁ РАЗ <span>↗</span></button>
+        </div>
+      </div>
+      <div className="result-footer"><span>VOGUE — THE DIGITAL FASHION ISSUE</span><span>STYLE IS PERSONAL. MAKE IT YOURS.</span></div>
+    </section>}
+
+    <footer className="site-footer"><span>VOGUE DIGITAL SPECIAL PROJECT</span><span>FASHION × MEDIA × YOU</span><span>© 2026</span></footer>
+  </main>;
 }
