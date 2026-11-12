@@ -133,8 +133,8 @@ export default function App() {
         <div className="cover-character catwoman-cover"><img src={personas.catwoman.image} onError={e => { e.currentTarget.style.display = "none"; }} alt="Женщина-кошка"/><span>02 / CATWOMAN</span></div>
         <div className="cover-character wednesday-cover"><img src={personas.wednesday.image} onError={e => { e.currentTarget.style.display = "none"; }} alt="Уэнсдэй"/><span>03 / WEDNESDAY</span></div>
         <div className="cover-stamp">WHO<br/>ARE<br/><b>YOU?</b></div>
-        <div className="cover-caption"><span>THREE ICONS<br/>ONE PERSONALITY TEST</span><span>ISSUE № 01<br/>2026</span></div>
       </div>
+      <div className="cover-caption cover-caption-below"><span>THREE ICONS<br/>ONE PERSONALITY TEST</span><span>ISSUE № 01<br/>2026</span></div>
       <div className="cover-side-note">A STUDY IN PERSONALITY — 2026</div>
       <div className="character-intro"><p className="kicker">MEET YOUR THREE ARCHETYPES</p><h2>Кто из них <em>ты?</em></h2><div className="character-intro-grid"><article><b>БАРБИ</b><span>Открытость · оптимизм · яркость</span></article><article><b>ЖЕНЩИНА-КОШКА</b><span>Независимость · смелость · контроль</span></article><article><b>УЭНСДЭЙ</b><span>Наблюдательность · ирония · самобытность</span></article></div></div>
     </section>}
