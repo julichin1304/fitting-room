@@ -1,70 +1,85 @@
 import type { CharacterId } from './characters';
 
-const palettes = {
-  catwoman: { skin: '#d9a98f', hair: '#17151b', main: '#17151b', accent: '#c6a15b' },
-  barbie: { skin: '#f0c3a7', hair: '#d8a34c', main: '#ed72a2', accent: '#f5c7d8' },
-  wednesday: { skin: '#e3c5b5', hair: '#17171b', main: '#25262c', accent: '#aeb8c6' },
+type Palette = { skin: string; hair: string; main: string; accent: string; shadow: string };
+const palettes: Record<CharacterId, Palette> = {
+  catwoman: { skin: '#d9a98f', hair: '#17151b', main: '#17151b', accent: '#c6a15b', shadow: '#6e4b43' },
+  barbie: { skin: '#efc1a8', hair: '#d8a34c', main: '#ed72a2', accent: '#f7d8e5', shadow: '#a86d64' },
+  wednesday: { skin: '#e3c5b5', hair: '#17171b', main: '#25262c', accent: '#c8cbd1', shadow: '#82665f' },
 };
 
-function svgUrl(body: string, viewBox = '0 0 600 900'): string {
-  return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="' + viewBox + '">' + body + '</svg>'
-  );
+function svgUrl(body: string): string {
+  const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900">' + body + '</svg>';
+  return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
 }
 
 export function characterArt(id: CharacterId): string {
   const p = palettes[id];
-  const backdrop = '<rect width="600" height="900" fill="' + (id === 'barbie' ? '#fff5f8' : '#f2efeb') + '"/><ellipse cx="300" cy="855" rx="165" ry="20" fill="#000" opacity=".08"/>';
+  const bg = id === 'barbie' ? '#fff4f8' : id === 'wednesday' ? '#f0eff1' : '#f2eee9';
   const hair = id === 'barbie'
-    ? '<path d="M205 190 Q185 75 300 65 Q420 65 402 205 L420 440 Q385 510 360 420 L355 220 Q300 175 245 225 L240 440 Q195 500 175 420Z" fill="' + p.hair + '"/>'
-    : '<path d="M205 180 Q190 65 300 65 Q410 65 395 180 L410 470 Q380 520 350 430 L350 230 Q300 190 250 230 L250 430 Q220 520 190 470Z" fill="' + p.hair + '"/>';
-  const catEars = id === 'catwoman' ? '<path d="M210 148 L225 60 L270 110 Q300 92 330 110 L375 60 L390 148Z" fill="#17151b"/>' : '';
-  const legs = '<path d="M230 600 L292 600 L285 805 Q280 835 260 835 L230 835 Q220 825 225 805Z M308 600 L370 600 L375 805 Q380 835 360 835 L330 835 Q320 825 315 805Z" fill="' + p.skin + '" stroke="#b98576" stroke-width="3"/>';
-  const shoes = '<path d="M228 810 Q250 825 282 812 L292 855 Q270 870 220 858Z M318 812 Q350 825 372 810 L380 858 Q330 870 308 855Z" fill="' + p.main + '" stroke="' + p.accent + '" stroke-width="4"/>';
-  const arms = '<path d="M238 350 Q205 375 190 500 L160 650 Q158 680 178 680 Q198 680 205 650 L270 430Z M362 350 Q395 375 410 500 L440 650 Q442 680 422 680 Q402 680 395 650 L330 430Z" fill="' + p.skin + '" stroke="#b98576" stroke-width="3"/>';
-  const dress = id === 'barbie'
-    ? '<path d="M238 345 Q300 325 362 345 L388 610 Q300 655 212 610Z" fill="#f4d4e0" stroke="#d46d98" stroke-width="5"/><path d="M250 350 L300 405 L350 350" fill="none" stroke="#fff" stroke-width="8"/>'
-    : id === 'wednesday'
-    ? '<path d="M238 345 Q300 325 362 345 L390 625 L210 625Z" fill="#25262c" stroke="#15151a" stroke-width="5"/><path d="M250 345 L300 410 L350 345 L333 465 L267 465Z" fill="#f1f0ed" stroke="#b8bbc3" stroke-width="4"/>'
-    : '<path d="M238 345 Q300 325 362 345 L390 625 L210 625Z" fill="#17151b" stroke="#c6a15b" stroke-width="5"/><path d="M270 350 L300 410 L330 350" fill="none" stroke="#c6a15b" stroke-width="5"/>';
-  const face = '<ellipse cx="300" cy="205" rx="79" ry="100" fill="' + p.skin + '"/><path d="M260 205 Q275 195 286 205 M314 205 Q328 195 340 205" stroke="#292329" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M287 255 Q300 265 313 255" stroke="#a65e68" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M220 205 Q232 110 300 105 Q368 110 380 205 Q355 155 300 155 Q245 155 220 205Z" fill="' + p.hair + '"/>';
-  return svgUrl(backdrop + hair + catEars + legs + shoes + arms + dress + face);
+    ? '<path d="M205 205 Q170 65 300 55 Q430 65 395 205 L425 485 Q400 535 370 450 L365 230 Q300 165 235 230 L230 450 Q200 535 175 485Z" fill="' + p.hair + '"/><path d="M370 110 Q445 185 405 360" fill="none" stroke="#f1c77f" stroke-width="13" opacity=".6"/>'
+    : '<path d="M205 205 Q175 65 300 55 Q425 65 395 205 L420 500 Q390 545 360 455 L360 225 Q300 165 240 225 L240 455 Q210 545 180 500Z" fill="' + p.hair + '"/>';
+  const ears = id === 'catwoman' ? '<path d="M205 155 L215 55 L275 120 Q300 105 325 120 L385 55 L395 155Z" fill="#17151b"/>' : '';
+  const body = '<path d="M245 330 Q300 310 355 330 L380 515 Q365 585 360 610 L370 810 Q372 840 350 842 L325 842 Q310 835 312 810 L300 630 L288 810 Q290 835 270 842 L245 842 Q225 840 230 810 L240 610 Q235 585 220 515Z" fill="' + p.skin + '" stroke="' + p.shadow + '" stroke-width="3"/>';
+  const arms = '<path d="M245 345 Q220 350 207 405 L170 625 Q165 650 183 657 Q200 662 208 640 L270 430Z M355 345 Q380 350 393 405 L430 625 Q435 650 417 657 Q400 662 392 640 L330 430Z" fill="' + p.skin + '" stroke="' + p.shadow + '" stroke-width="3"/>';
+  const face = '<ellipse cx="300" cy="205" rx="76" ry="96" fill="' + p.skin + '"/><path d="M265 207 Q278 198 289 207 M311 207 Q322 198 335 207" stroke="#292329" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M288 255 Q300 263 312 255" stroke="#a65e68" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M224 205 Q230 95 300 95 Q370 95 376 205 Q350 155 300 155 Q250 155 224 205Z" fill="' + p.hair + '"/>';
+  const collar = id === 'wednesday' ? '<path d="M260 330 L300 390 L340 330 L330 435 L270 435Z" fill="#f6f5f2" stroke="#c4c5ca" stroke-width="4"/>' : '';
+  const background = '<rect width="600" height="900" fill="' + bg + '"/><ellipse cx="300" cy="860" rx="155" ry="17" fill="#211c20" opacity=".10"/>';
+  const accents = id === 'catwoman' ? '<path d="M230 260 Q300 290 370 260" fill="none" stroke="#17151b" stroke-width="5"/>' : id === 'barbie' ? '<path d="M265 260 Q300 280 335 260" fill="none" stroke="#d56c94" stroke-width="4"/>' : '<path d="M260 260 H340" stroke="#25262c" stroke-width="4"/>';
+  return svgUrl(background + hair + ears + body + arms + collar + face + accents);
 }
 
 function garmentSvg(id: string): string {
-  const parts = id.split('-');
-  const who = parts[0] as CharacterId;
-  const kind = parts[1];
-  const v = Number(parts[2]) || 1;
-  const p = palettes[who] || palettes.barbie;
-  const colors = who === 'barbie' ? ['#ef79a8', '#f5d4e1', '#c93e82'] : who === 'wednesday' ? ['#24242b', '#454955', '#111116'] : ['#17151b', '#38323b', '#252027'];
-  const c = colors[(v - 1) % colors.length];
-  const t = p.accent;
+  const [whoRaw, kind, numberRaw] = id.split('-');
+  const who = whoRaw === 'cat' ? 'catwoman' : whoRaw === 'bar' ? 'barbie' : 'wednesday';
+  const p = palettes[who];
+  const n = Number(numberRaw) || 1;
+  const palette = who === 'barbie' ? ['#e96e9f', '#f5d5e2', '#c53e83'] : who === 'wednesday' ? ['#25252d', '#4c505b', '#17171c'] : ['#17151b', '#38323b', '#242027'];
+  const c = palette[(n - 1) % palette.length];
+  const gold = who === 'catwoman' ? '#c6a15b' : who === 'barbie' ? '#f4c9d9' : '#aeb4c0';
   let shape = '';
+
   if (kind === 'top') {
-    shape = '<path d="M125 155 L220 90 L265 125 L335 125 L380 90 L475 155 L430 260 L390 235 L380 490 L220 490 L210 235 L170 260Z" fill="' + c + '" stroke="' + t + '" stroke-width="9" stroke-linejoin="round"/><path d="M265 125 Q300 205 335 125" fill="none" stroke="' + t + '" stroke-width="10"/>';
-    if (v === 2) shape += '<path d="M270 130 Q250 60 220 95 Q250 145 300 155 Q350 145 380 95 Q350 60 330 130Z" fill="' + t + '"/>';
-    if (v === 3) shape += '<path d="M235 220 H365 M235 260 H365 M235 300 H365" stroke="' + t + '" stroke-width="7"/>';
+    const sleeve = n === 2
+      ? '<path d="M238 340 L205 365 L190 455 L225 465 L260 395 M362 340 L395 365 L410 455 L375 465 L340 395Z" fill="' + c + '" stroke="' + gold + '" stroke-width="5"/>'
+      : '<path d="M238 340 L205 365 L220 435 L250 415 M362 340 L395 365 L380 435 L350 415Z" fill="' + c + '" stroke="' + gold + '" stroke-width="5"/>';
+    const bodice = n === 1
+      ? '<path d="M238 337 Q267 325 280 350 L300 368 L320 350 Q333 325 362 337 L350 515 Q300 540 250 515Z" fill="' + c + '" stroke="' + gold + '" stroke-width="6"/><path d="M280 355 L300 390 L320 355" fill="none" stroke="' + gold + '" stroke-width="5"/>'
+      : n === 2
+      ? '<path d="M245 340 Q270 325 285 350 L300 370 L315 350 Q330 325 355 340 L350 520 L250 520Z" fill="' + c + '" stroke="' + gold + '" stroke-width="6"/><path d="M280 380 L300 400 L320 380 M300 400 V505" stroke="' + gold + '" stroke-width="5" fill="none"/>'
+      : '<path d="M240 340 Q270 325 285 350 L300 370 L315 350 Q330 325 360 340 L350 520 L250 520Z" fill="' + c + '" stroke="' + gold + '" stroke-width="6"/><path d="M260 420 H340 M255 450 H345 M255 480 H345" stroke="' + gold + '" stroke-width="4"/>';
+    shape = sleeve + bodice;
   } else if (kind === 'bottom') {
-    shape = v === 2
-      ? '<path d="M150 100 L450 100 L425 210 L390 490 L330 490 L300 260 L270 490 L210 490 L175 210Z" fill="' + c + '" stroke="' + t + '" stroke-width="9"/><path d="M150 150 H450" stroke="' + t + '" stroke-width="9"/>'
-      : '<path d="M150 100 L450 100 L430 205 Q410 330 475 490 L325 490 L300 260 L275 490 L125 490 Q190 330 170 205Z" fill="' + c + '" stroke="' + t + '" stroke-width="9"/><path d="M150 150 H450" stroke="' + t + '" stroke-width="9"/>';
+    if (n === 1) {
+      shape = '<path d="M225 505 L375 505 L365 585 Q355 630 390 815 L325 820 L300 620 L275 820 L210 815 Q245 630 235 585Z" fill="' + c + '" stroke="' + gold + '" stroke-width="6"/><path d="M225 530 H375" stroke="' + gold + '" stroke-width="7"/>';
+    } else if (n === 2) {
+      shape = '<path d="M225 505 L375 505 L360 590 L345 820 L305 820 L300 625 L295 820 L255 820 L240 590Z" fill="' + c + '" stroke="' + gold + '" stroke-width="6"/><path d="M225 535 H375 M300 535 V610" stroke="' + gold + '" stroke-width="5" fill="none"/>';
+    } else {
+      shape = '<path d="M220 505 L380 505 L395 690 Q300 735 205 690Z" fill="' + c + '" stroke="' + gold + '" stroke-width="6"/><path d="M245 520 L230 685 M275 520 L270 700 M325 520 L330 700 M355 520 L370 685" stroke="' + gold + '" stroke-width="4" opacity=".8"/>';
+    }
   } else if (kind === 'dress') {
-    shape = '<path d="M210 90 L265 65 L335 65 L390 90 L365 205 L470 500 Q300 560 130 500 L235 205Z" fill="' + c + '" stroke="' + t + '" stroke-width="10" stroke-linejoin="round"/><path d="M265 65 Q300 145 335 65" fill="none" stroke="' + t + '" stroke-width="10"/>';
-    if (v === 2) shape += '<path d="M300 215 L350 500" stroke="' + t + '" stroke-width="8"/>';
-    if (v === 3) shape += '<path d="M235 210 H365" stroke="' + t + '" stroke-width="9"/>';
+    shape = n === 1
+      ? '<path d="M238 337 Q270 320 285 350 L300 370 L315 350 Q330 320 362 337 L350 515 Q395 635 420 690 Q300 745 180 690 Q205 635 250 515Z" fill="' + c + '" stroke="' + gold + '" stroke-width="7"/><path d="M280 355 L300 395 L320 355" fill="none" stroke="' + gold + '" stroke-width="5"/>'
+      : n === 2
+      ? '<path d="M238 337 Q270 320 285 350 L300 370 L315 350 Q330 320 362 337 L350 515 Q400 650 410 735 Q300 770 190 735 Q200 650 250 515Z" fill="' + c + '" stroke="' + gold + '" stroke-width="7"/><path d="M320 540 L355 730" stroke="' + gold + '" stroke-width="7"/>'
+      : '<path d="M238 337 Q270 320 285 350 L300 370 L315 350 Q330 320 362 337 L350 515 L385 700 Q300 735 215 700 L250 515Z" fill="' + c + '" stroke="' + gold + '" stroke-width="7"/><path d="M250 515 H350" stroke="' + gold + '" stroke-width="6"/>';
   } else if (kind === 'shoes') {
-    shape = '<path d="M90 285 Q155 265 205 205 L245 260 Q235 330 145 350 L85 345Z M355 260 L395 205 Q445 265 510 285 L515 345 L455 350 Q365 330 355 260Z" fill="' + c + '" stroke="' + t + '" stroke-width="10" stroke-linejoin="round"/><path d="M95 345 H145 M455 350 H510" stroke="' + t + '" stroke-width="8"/>';
+    shape = n === 1
+      ? '<path d="M230 805 Q260 825 290 805 L300 840 Q270 865 215 852 L215 838Z M310 805 Q340 825 370 805 L385 838 L385 852 Q330 865 300 840Z" fill="' + c + '" stroke="' + gold + '" stroke-width="5"/><path d="M245 850 L235 875 M355 850 L365 875" stroke="' + gold + '" stroke-width="5"/>'
+      : n === 2
+      ? '<path d="M225 800 L285 800 L295 850 Q260 870 210 855Z M315 800 L375 800 L390 855 Q340 870 305 850Z" fill="' + c + '" stroke="' + gold + '" stroke-width="5"/><path d="M230 825 H285 M315 825 H370" stroke="' + gold + '" stroke-width="5"/>'
+      : '<path d="M220 755 L285 755 L292 850 Q255 870 210 855 L210 815Z M315 755 L380 755 L390 815 L390 855 Q345 870 308 850Z" fill="' + c + '" stroke="' + gold + '" stroke-width="5"/><path d="M240 785 L275 785 M325 785 L360 785" stroke="' + gold + '" stroke-width="5"/>';
   } else {
-    shape = v === 1
-      ? '<path d="M150 190 Q300 95 450 190 L430 225 Q300 155 170 225Z" fill="none" stroke="' + t + '" stroke-width="18"/><circle cx="300" cy="205" r="35" fill="' + c + '" stroke="' + t + '" stroke-width="9"/>'
-      : v === 2
-      ? '<path d="M135 175 Q300 65 465 175 L430 210 Q300 125 170 210Z" fill="none" stroke="' + c + '" stroke-width="25"/><path d="M300 90 Q250 25 220 90 Q250 140 300 120 Q350 140 380 90 Q350 25 300 90Z" fill="' + t + '"/>'
-      : v === 3
-      ? '<path d="M175 170 Q300 120 425 170 L465 330 L365 370 L335 245 L265 245 L235 370 L135 330Z" fill="' + c + '" stroke="' + t + '" stroke-width="10"/>'
-      : '<path d="M110 190 Q300 80 490 190 L455 240 Q300 150 145 240Z" fill="' + c + '" stroke="' + t + '" stroke-width="9"/><circle cx="300" cy="205" r="55" fill="none" stroke="' + t + '" stroke-width="12"/>';
+    if (n === 1) {
+      shape = '<path d="M250 330 Q300 390 350 330" fill="none" stroke="' + gold + '" stroke-width="9"/><circle cx="300" cy="390" r="13" fill="' + c + '" stroke="' + gold + '" stroke-width="5"/>';
+    } else if (n === 2) {
+      shape = '<path d="M220 190 Q300 125 380 190" fill="none" stroke="' + c + '" stroke-width="20"/><path d="M300 150 Q265 105 245 145 Q270 185 300 170 Q330 185 355 145 Q335 105 300 150Z" fill="' + gold + '"/>';
+    } else if (n === 3) {
+      shape = '<path d="M365 470 Q420 445 445 500 L430 610 Q385 625 360 590Z" fill="' + c + '" stroke="' + gold + '" stroke-width="6"/><path d="M370 475 Q400 430 430 470" fill="none" stroke="' + gold + '" stroke-width="5"/>';
+    } else {
+      shape = '<path d="M230 205 Q300 165 370 205 L360 235 Q300 205 240 235Z" fill="' + c + '" stroke="' + gold + '" stroke-width="5"/><path d="M250 205 L265 225 M335 225 L350 205" stroke="' + gold + '" stroke-width="5"/>';
+    }
   }
-  return svgUrl(shape, '0 0 600 600');
+  return svgUrl(shape);
 }
 
 export function wardrobeArt(id: string): string {
