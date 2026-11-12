@@ -44,10 +44,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "tops",
     "name": "Кожаный топ со шнуровкой",
     "src": wardrobeArt('cat-top-1'),
-    "left": 28.33,
-    "top": 31.11,
-    "width": 43.33,
-    "height": 25.56,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 30
   },
   {
@@ -56,10 +56,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "tops",
     "name": "Корсетный топ",
     "src": wardrobeArt('cat-top-2'),
-    "left": 28.33,
-    "top": 31.11,
-    "width": 43.33,
-    "height": 25.56,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 30
   },
   {
@@ -68,10 +68,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "tops",
     "name": "Шёлковый топ с V-вырезом",
     "src": wardrobeArt('cat-top-3'),
-    "left": 28.33,
-    "top": 31.11,
-    "width": 43.33,
-    "height": 25.56,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 30
   },
   {
@@ -80,10 +80,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "bottoms",
     "name": "Кожаные брюки",
     "src": wardrobeArt('cat-bottom-1'),
-    "left": 30,
-    "top": 52.22,
-    "width": 40,
-    "height": 33.33,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 20
   },
   {
@@ -92,10 +92,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "bottoms",
     "name": "Юбка-карандаш",
     "src": wardrobeArt('cat-bottom-2'),
-    "left": 30,
-    "top": 52.22,
-    "width": 40,
-    "height": 33.33,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 20
   },
   {
@@ -104,10 +104,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "bottoms",
     "name": "Брюки со стрелками",
     "src": wardrobeArt('cat-bottom-3'),
-    "left": 30,
-    "top": 52.22,
-    "width": 40,
-    "height": 33.33,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 20
   },
   {
@@ -116,10 +116,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "dresses",
     "name": "Маленькое чёрное платье",
     "src": wardrobeArt('cat-dress-1'),
-    "left": 25.83,
-    "top": 31.11,
-    "width": 48.33,
-    "height": 55.56,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 25
   },
   {
@@ -128,10 +128,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "dresses",
     "name": "Вечернее платье с разрезом",
     "src": wardrobeArt('cat-dress-2'),
-    "left": 25.83,
-    "top": 31.11,
-    "width": 48.33,
-    "height": 55.56,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 25
   },
   {
@@ -140,10 +140,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "dresses",
     "name": "Платье-комбинация",
     "src": wardrobeArt('cat-dress-3'),
-    "left": 25.83,
-    "top": 31.11,
-    "width": 48.33,
-    "height": 55.56,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 25
   },
   {
@@ -152,10 +152,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "shoes",
     "name": "Лодочки на шпильке",
     "src": wardrobeArt('cat-shoes-1'),
-    "left": 29.17,
-    "top": 84.44,
-    "width": 41.67,
-    "height": 12.22,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 10
   },
   {
@@ -164,10 +164,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "shoes",
     "name": "Ботильоны на каблуке",
     "src": wardrobeArt('cat-shoes-2'),
-    "left": 29.17,
-    "top": 84.44,
-    "width": 41.67,
-    "height": 12.22,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 10
   },
   {
@@ -176,10 +176,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "shoes",
     "name": "Сапоги с высоким голенищем",
     "src": wardrobeArt('cat-shoes-3'),
-    "left": 29.17,
-    "top": 84.44,
-    "width": 41.67,
-    "height": 12.22,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 10
   },
   {
@@ -188,10 +188,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "accessories",
     "name": "Чокер с подвеской",
     "src": wardrobeArt('cat-acc-1'),
-    "left": 35.83,
-    "top": 27.78,
-    "width": 28.33,
-    "height": 12.22,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 40
   },
   {
@@ -200,10 +200,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "accessories",
     "name": "Очки-кошачий глаз",
     "src": wardrobeArt('cat-acc-2'),
-    "left": 31.67,
-    "top": 10.56,
-    "width": 36.67,
-    "height": 10.56,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 40
   },
   {
@@ -212,10 +212,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "accessories",
     "name": "Клатч с цепочкой",
     "src": wardrobeArt('cat-acc-3'),
-    "left": 65.83,
-    "top": 56.11,
-    "width": 25,
-    "height": 21.67,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 40
   },
   {
@@ -224,10 +224,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "accessories",
     "name": "Пояс с золотой пряжкой",
     "src": wardrobeArt('cat-acc-4'),
-    "left": 30,
-    "top": 50.56,
-    "width": 40,
-    "height": 8.33,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 32
   },
   {
@@ -236,10 +236,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "tops",
     "name": "Розовый шёлковый топ",
     "src": wardrobeArt('bar-top-1'),
-    "left": 28.33,
-    "top": 31.11,
-    "width": 43.33,
-    "height": 25.56,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 30
   },
   {
@@ -248,10 +248,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "tops",
     "name": "Топ с бантом",
     "src": wardrobeArt('bar-top-2'),
-    "left": 28.33,
-    "top": 31.11,
-    "width": 43.33,
-    "height": 25.56,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 30
   },
   {
@@ -260,10 +260,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "tops",
     "name": "Топ с пайетками",
     "src": wardrobeArt('bar-top-3'),
-    "left": 28.33,
-    "top": 31.11,
-    "width": 43.33,
-    "height": 25.56,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 30
   },
   {
@@ -272,10 +272,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "bottoms",
     "name": "Юбка-мини",
     "src": wardrobeArt('bar-bottom-1'),
-    "left": 30,
-    "top": 52.22,
-    "width": 40,
-    "height": 33.33,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 20
   },
   {
@@ -284,10 +284,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "bottoms",
     "name": "Прямые джинсы",
     "src": wardrobeArt('bar-bottom-2'),
-    "left": 30,
-    "top": 52.22,
-    "width": 40,
-    "height": 33.33,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 20
   },
   {
@@ -296,10 +296,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "bottoms",
     "name": "Юбка-солнце",
     "src": wardrobeArt('bar-bottom-3'),
-    "left": 30,
-    "top": 52.22,
-    "width": 40,
-    "height": 33.33,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 20
   },
   {
@@ -308,10 +308,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "dresses",
     "name": "Платье-бюстье",
     "src": wardrobeArt('bar-dress-1'),
-    "left": 25.83,
-    "top": 31.11,
-    "width": 48.33,
-    "height": 55.56,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 25
   },
   {
@@ -320,10 +320,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "dresses",
     "name": "Коктейльное платье",
     "src": wardrobeArt('bar-dress-2'),
-    "left": 25.83,
-    "top": 31.11,
-    "width": 48.33,
-    "height": 55.56,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 25
   },
   {
@@ -332,10 +332,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "dresses",
     "name": "Платье с блёстками",
     "src": wardrobeArt('bar-dress-3'),
-    "left": 25.83,
-    "top": 31.11,
-    "width": 48.33,
-    "height": 55.56,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 25
   },
   {
@@ -344,10 +344,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "shoes",
     "name": "Розовые лодочки",
     "src": wardrobeArt('bar-shoes-1'),
-    "left": 29.17,
-    "top": 84.44,
-    "width": 41.67,
-    "height": 12.22,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 10
   },
   {
@@ -356,10 +356,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "shoes",
     "name": "Босоножки на платформе",
     "src": wardrobeArt('bar-shoes-2'),
-    "left": 29.17,
-    "top": 84.44,
-    "width": 41.67,
-    "height": 12.22,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 10
   },
   {
@@ -368,10 +368,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "shoes",
     "name": "Слингбэки",
     "src": wardrobeArt('bar-shoes-3'),
-    "left": 29.17,
-    "top": 84.44,
-    "width": 41.67,
-    "height": 12.22,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 10
   },
   {
@@ -380,10 +380,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "accessories",
     "name": "Жемчужное ожерелье",
     "src": wardrobeArt('bar-acc-1'),
-    "left": 35.83,
-    "top": 27.78,
-    "width": 28.33,
-    "height": 12.22,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 40
   },
   {
@@ -392,10 +392,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "accessories",
     "name": "Обруч с бантом",
     "src": wardrobeArt('bar-acc-2'),
-    "left": 30.83,
-    "top": 6.67,
-    "width": 38.33,
-    "height": 9.44,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 40
   },
   {
@@ -404,10 +404,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "accessories",
     "name": "Сумочка на цепочке",
     "src": wardrobeArt('bar-acc-3'),
-    "left": 65.83,
-    "top": 56.11,
-    "width": 25,
-    "height": 21.67,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 40
   },
   {
@@ -416,10 +416,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "accessories",
     "name": "Солнечные очки",
     "src": wardrobeArt('bar-acc-4'),
-    "left": 31.67,
-    "top": 10.56,
-    "width": 36.67,
-    "height": 10.56,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 40
   },
   {
@@ -428,10 +428,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "tops",
     "name": "Чёрная блуза",
     "src": wardrobeArt('wed-top-1'),
-    "left": 28.33,
-    "top": 31.11,
-    "width": 43.33,
-    "height": 25.56,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 30
   },
   {
@@ -440,10 +440,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "tops",
     "name": "Полосатый свитер",
     "src": wardrobeArt('wed-top-2'),
-    "left": 28.33,
-    "top": 31.11,
-    "width": 43.33,
-    "height": 25.56,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 30
   },
   {
@@ -452,10 +452,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "tops",
     "name": "Трикотажный топ",
     "src": wardrobeArt('wed-top-3'),
-    "left": 28.33,
-    "top": 31.11,
-    "width": 43.33,
-    "height": 25.56,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 30
   },
   {
@@ -464,10 +464,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "bottoms",
     "name": "Чёрная юбка-миди",
     "src": wardrobeArt('wed-bottom-1'),
-    "left": 30,
-    "top": 52.22,
-    "width": 40,
-    "height": 33.33,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 20
   },
   {
@@ -476,10 +476,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "bottoms",
     "name": "Прямые брюки",
     "src": wardrobeArt('wed-bottom-2'),
-    "left": 30,
-    "top": 52.22,
-    "width": 40,
-    "height": 33.33,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 20
   },
   {
@@ -488,10 +488,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "bottoms",
     "name": "Плиссированная юбка",
     "src": wardrobeArt('wed-bottom-3'),
-    "left": 30,
-    "top": 52.22,
-    "width": 40,
-    "height": 33.33,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 20
   },
   {
@@ -500,10 +500,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "dresses",
     "name": "Платье с белым воротником",
     "src": wardrobeArt('wed-dress-1'),
-    "left": 25.83,
-    "top": 31.11,
-    "width": 48.33,
-    "height": 55.56,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 25
   },
   {
@@ -512,10 +512,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "dresses",
     "name": "Платье с кружевом",
     "src": wardrobeArt('wed-dress-2'),
-    "left": 25.83,
-    "top": 31.11,
-    "width": 48.33,
-    "height": 55.56,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 25
   },
   {
@@ -524,10 +524,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "dresses",
     "name": "Платье-футляр",
     "src": wardrobeArt('wed-dress-3'),
-    "left": 25.83,
-    "top": 31.11,
-    "width": 48.33,
-    "height": 55.56,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 25
   },
   {
@@ -536,10 +536,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "shoes",
     "name": "Чёрные ботинки",
     "src": wardrobeArt('wed-shoes-1'),
-    "left": 29.17,
-    "top": 84.44,
-    "width": 41.67,
-    "height": 12.22,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 10
   },
   {
@@ -548,10 +548,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "shoes",
     "name": "Туфли Мэри Джейн",
     "src": wardrobeArt('wed-shoes-2'),
-    "left": 29.17,
-    "top": 84.44,
-    "width": 41.67,
-    "height": 12.22,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 10
   },
   {
@@ -560,10 +560,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "shoes",
     "name": "Ботинки на шнуровке",
     "src": wardrobeArt('wed-shoes-3'),
-    "left": 29.17,
-    "top": 84.44,
-    "width": 41.67,
-    "height": 12.22,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 10
   },
   {
@@ -572,10 +572,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "accessories",
     "name": "Белый воротник",
     "src": wardrobeArt('wed-acc-1'),
-    "left": 35,
-    "top": 28.33,
-    "width": 30,
-    "height": 12.78,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 40
   },
   {
@@ -584,10 +584,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "accessories",
     "name": "Полосатые гольфы",
     "src": wardrobeArt('wed-acc-2'),
-    "left": 30.83,
-    "top": 76.67,
-    "width": 38.33,
-    "height": 17.78,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 9
   },
   {
@@ -596,10 +596,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "accessories",
     "name": "Сумка-почтальон",
     "src": wardrobeArt('wed-acc-3'),
-    "left": 65.83,
-    "top": 56.11,
-    "width": 25,
-    "height": 21.67,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 40
   },
   {
@@ -608,10 +608,10 @@ export const WARDROBE: WardrobeItem[] = [
     "category": "accessories",
     "name": "Тёмные очки",
     "src": wardrobeArt('wed-acc-4'),
-    "left": 31.67,
-    "top": 10.56,
-    "width": 36.67,
-    "height": 10.56,
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100,
     "z": 40
   }
 ];
