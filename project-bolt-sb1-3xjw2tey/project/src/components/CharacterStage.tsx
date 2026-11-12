@@ -27,14 +27,8 @@ function CharacterStage({ characterId, worn }: StageProps) {
           key={item.id}
           src={item.src}
           alt={item.name}
-          className="absolute"
-          style={{
-            left: `${item.left}%`,
-            top: `${item.top}%`,
-            width: `${item.width}%`,
-            height: `${item.height}%`,
-            zIndex: item.z,
-          }}
+          className="absolute inset-0 h-full w-full object-contain"
+          style={{ zIndex: item.z }}
           draggable={false}
         />
       ))}
