@@ -2,6 +2,7 @@
 // Regenerate with: node scripts/generate-placeholders.mjs
 
 import type { CharacterId } from './characters';
+import { characterArt, wardrobeArt } from './wardrobe-art';
 
 export type Category = 'tops' | 'bottoms' | 'dresses' | 'shoes' | 'accessories';
 
@@ -23,9 +24,9 @@ export interface WardrobeItem {
 export const STAGE = { width: 600, height: 900 };
 
 export const CHARACTER_BASE: Record<CharacterId, string> = {
-  catwoman: 'assets/characters/catwoman/base.png',
-  barbie: 'assets/characters/barbie/base.png',
-  wednesday: 'assets/characters/wednesday/base.png',
+  catwoman: characterArt('catwoman'),
+  barbie: characterArt('barbie'),
+  wednesday: characterArt('wednesday'),
 };
 
 export const CATEGORY_LABELS: Record<Category, string> = {
