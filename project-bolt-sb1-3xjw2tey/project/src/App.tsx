@@ -14,7 +14,7 @@ const personas: Record<Persona, { name: string; tagline: string; description: st
     description: 'Ты умеешь превращать повседневность в маленькое событие. Тебе близки яркие впечатления, открытость и смелое самовыражение. Ты не ждёшь повода сиять — ты сама его создаёшь.',
     style: 'Glamour · Pink accents · Statement details',
     palette: 'Розовый / молочный / сияющий',
-    image: 'https://ilarge.lisimg.com/image/30171030/740full-barbie-screenshot.jpg',
+    image: 'https://www.femalefirst.co.uk/image-library/partners/bang/land/1000/j/jacqueline-durran-reveals-how-she-designed-the-costumes-for-.jpg',
     fallback: './assets/characters/barbie/pngtree-barbie-doll-in-pink-dress-png-image_18178448.webp',
     quote: 'Жизнь — твой личный подиум. Не забывай занимать центральное место.'
   },
@@ -27,7 +27,7 @@ const personas: Record<Persona, { name: string; tagline: string; description: st
     description: 'Ты ценишь свободу, личные границы и право выбирать собственный маршрут. Твоя уверенность не нуждается в громких заявлениях: в ней есть спокойствие, точность и немного загадки.',
     style: 'Power dressing · Total black · Sharp silhouettes',
     palette: 'Чёрный / графит / винный',
-    image: 'https://media.stylist.co.uk/app/uploads/2019/04/02105155/gettyimages-607408330-crop-1554198732-1120x1120.jpg',
+    image: 'https://images6.alphacoders.com/435/435673.jpg',
     fallback: './assets/characters/catwoman/catwoman-logo-png_seeklogo-27216.png',
     quote: 'Самое сильное заявление — оставаться верной себе.'
   },
@@ -40,7 +40,7 @@ const personas: Record<Persona, { name: string; tagline: string; description: st
     description: 'Ты замечаешь то, что другие пропускают, и не стремишься быть удобной или понятной всем. Тебя привлекают глубина, ирония и необычные решения. Твоя индивидуальность — твоя суперсила.',
     style: 'Dark academia · Monochrome · Unusual accents',
     palette: 'Чёрный / белый / холодный серый',
-    image: 'https://images2.minutemediacdn.com/image/upload/c_fill%2Cw_1200%2Car_4%3A3%2Cf_auto%2Cq_auto%2Cg_auto/images/ImageExchange/mmsport/385/01k1kr2fjjjfc670rdjs.jpg',
+    image: 'https://4ab0f3c1-9220-4ed3-9221-ee40d72bacf1.selstorage.ru/2022/12/uensdej-addams-v-plate-alaia-v-4-epizode-woe-what-a-night-seriala-wednesday-foto-2.jpg',
     fallback: './assets/characters/wednesday/Wednesdayaddamscharacterclipartpng_wednesdaytheaddamsfamilypng.jpg',
     quote: 'Быть не как все — не стратегия. Это твоя естественная настройка.'
   }
