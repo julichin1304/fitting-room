@@ -27,7 +27,7 @@ const personas: Record<Persona, { name: string; tagline: string; description: st
     description: 'Ты ценишь свободу, личные границы и право выбирать собственный маршрут. Твоя уверенность не нуждается в громких заявлениях: в ней есть спокойствие, точность и немного загадки.',
     style: 'Power dressing · Total black · Sharp silhouettes',
     palette: 'Чёрный / графит / винный',
-    image: 'https://wl-brightside.cf.tsp.li/resize/728x/jpg/ea7/9c3/7e04985c8fb1c2c037161b6c87.jpg',
+    image: 'https://shop.dc.com/cdn/shop/files/sideshow-collectibles-dc-comics-catwoman-batman-the-animated-series-art-print-gallery-6970ffd58fe6d.1773437135699.jpg?v=1774035528',
     fallback: './assets/characters/catwoman/catwoman-logo-png_seeklogo-27216.png',
     quote: 'Самое сильное заявление — оставаться верной себе.'
   },
