@@ -2,7 +2,7 @@
 // Regenerate with: node scripts/generate-placeholders.mjs
 
 import type { CharacterId } from './characters';
-import { characterArt, wardrobeArt } from './wardrobe-art';
+import { wardrobeArt } from './wardrobe-art';
 
 export type Category = 'tops' | 'bottoms' | 'dresses' | 'shoes' | 'accessories';
 
@@ -23,10 +23,12 @@ export interface WardrobeItem {
 
 export const STAGE = { width: 600, height: 900 };
 
+const CHARACTER_ASSETS = import.meta.env.BASE_URL + 'assets/characters/';
+
 export const CHARACTER_BASE: Record<CharacterId, string> = {
-  catwoman: characterArt('catwoman'),
-  barbie: characterArt('barbie'),
-  wednesday: characterArt('wednesday'),
+  catwoman: CHARACTER_ASSETS + 'catwoman/catwoman-logo-png_seeklogo-27216.png',
+  barbie: CHARACTER_ASSETS + 'barbie/pngtree-barbie-doll-in-pink-dress-png-image_18178448.webp',
+  wednesday: CHARACTER_ASSETS + 'wednesday/Wednesdayaddamscharacterclipartpng_wednesdaytheaddamsfamilypng.jpg',
 };
 
 export const CATEGORY_LABELS: Record<Category, string> = {
