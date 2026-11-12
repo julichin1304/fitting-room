@@ -63,13 +63,13 @@ export default function Result({
           {/* character preview */}
           <div className="w-full max-w-[300px] flex-shrink-0">
             <div
-              className="relative overflow-hidden border border-neutral-200 bg-white shadow-xl"
+              className="relative overflow-hidden border border-neutral-200 bg-[#faf7f2] shadow-xl"
               style={{ aspectRatio: '2 / 3' }}
             >
               <img
                 src={CHARACTER_BASE[winner]}
                 alt={character.name}
-                className={`h-full w-full ${winner === 'wednesday' ? 'object-cover object-top scale-[1.08]' : 'object-contain'}`}
+                className={`h-full w-full ${winner === 'wednesday' ? 'object-cover object-top scale-[1.08]' : winner === 'barbie' ? 'object-contain mix-blend-multiply' : 'object-contain'}`}
                 loading="eager"
               />
               <div
