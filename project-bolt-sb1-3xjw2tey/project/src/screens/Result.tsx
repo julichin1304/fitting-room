@@ -10,6 +10,7 @@ import {
   calculateRecommendation,
   type CharacterId,
 } from '@/data/characters';
+import { CHARACTER_BASE } from '@/data/wardrobe.generated';
 
 export default function Result({
   answers,
@@ -66,9 +67,9 @@ export default function Result({
               style={{ aspectRatio: '2 / 3' }}
             >
               <img
-                src={`assets/characters/${character.id}/base.png`}
+                src={CHARACTER_BASE[winner]}
                 alt={character.name}
-                className="h-full w-full object-cover"
+                className={`h-full w-full ${winner === 'wednesday' ? 'object-cover object-top scale-[1.08]' : 'object-contain'}`}
                 loading="eager"
               />
               <div
