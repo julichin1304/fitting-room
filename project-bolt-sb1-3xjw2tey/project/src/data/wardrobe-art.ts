@@ -87,6 +87,25 @@ function garmentSvg(id: string): string {
   return svgUrl(shape);
 }
 
+const realClothingPng = {
+  blueDress: 'https://purepng.com/download/kr7rwBwLJxsAqGeWcNoRRsDmWPcNCP54u4bt21KTYHUbf5RUvRFodJWpe9SPRCxVshv7FZ0OUJbpq6OyJL98pCZeWG3jSciDji15UoofoFvbylWO1L13waJDMMwTUg5jxiGv3qAeX3nBgmipz2KITqxdjXvS7gkTRoNcMF5sO0cww1D0NS3Gxfzl2smNnP7gs9jVGjbZ/small',
+  redDress: 'https://purepng.com/download/4QIkj9hQhQQjtV2ffYGfVUwfvGbbZzli1iKyW27GLrqM8RY1K24vPLCAj7Q5LOTU6rJgveDoErBObhGTutoZm1cLlvuBGoVOwDLcwUHMFFQcEKwOCmubvlW3422lOGK7VHvgmodl84EIEKIWDrIB0hrQeRz7D6JwdHQGAKubHeQcrkf88caoYVm1NSkKMKNj91YKRYMX/small',
+  jeans: 'https://purepng.com/download/4AoLHAduwnGHmZLbz4CToZT1YbV5i7bXWW5U9SRQklX96XGe14v5uhgaWYKtcy6W23Avm0vMilymtn5x5usBAJtL0dHug4SXHNtDav3SxtM8vtbpGARt9F3vWcNDMg6znO1rNbuQFje1KpyPY4WUmsRTyat3p49NWbEGXcL2iEufiV5fnFtkyjPBlf33pWYHtQ3Vqm7v/small',
+  blackShirt: 'https://purepng.com/download/z4eh7haaUcyVeBLfCQoqTZeSc7Ja9mQqddnfGuiqFKP5MyzmHT96yFa4zVeohyT6reILTc1wWsNNTWJUZsgxMTAFBVpVnRDdsMgy9ncuL9RaKsaZu3Oc88vNHpq3QP0cx4HmorE8rReoF6BMHStL1r2VbTkylOHxM6a5V3u5GZ8RLcebs0f0rj8zRaK6qC0cJHqK4Cse/small',
+  checkShirt: 'https://purepng.com/download/HEybpiucuXvD5xFg6fLzW2jNknTMCDEji1zFTweGZmg47WvMpRDRsH19xCYEyJWfJHKCdHe0Bpm788vJbi3MBebs8AELrWvUiV9v7Zj98VgF92EwXc07WLcbwG5LvMW4d8oYzAgeYbwngl6djdUDw4EPAtQ6uQHufox75t8CVRyQ7YbpF7LYsVPgthzOnbLh86FOVNwJ/small',
+  whiteShirt: 'https://purepng.com/download/6oOcyY69U4FkUYWAIzaKBL3Q0nwZLEFs4Cc3Ot32ctyOo6iRRJJArstKQ1Gy7NYz9g6ibLBFrLCqcdNgp4qx1WSeQ46re0e7MNJ3yPEhWRanYXckHKvaFRJ7G7C6nMbP6dc8hJHF0Gi2ACDiIZg0m6AuRpAU9KSuTf00Dh3L4ZNZ9XnHDK3B7xyFvNENqFH6YSgfSatY/small',
+  greyShirt: 'https://purepng.com/download/OERuYbHi3x1LJWwd8lwJSur24np4r78Gqlet0rEOiBJmKofMsITQ8fW2d9uRxZiP7cFcZ6YibJF7jSsi0Zjw7BjzVx1IxLuKdm5zh5iACJrJkq7Hh671TJ1TY8rw6qkNo581WiStm87I5uhpZR8fQdK9Qb2We08KEAg2Omp52xK8Nans4QUTYmRp7Ay08PZ77QiMmVfp/small',
+};
+
 export function wardrobeArt(id: string): string {
+  const [who, kind, numberRaw] = id.split('-');
+  const n = Number(numberRaw) || 1;
+  if (kind === 'dress') return n % 2 ? realClothingPng.blueDress : realClothingPng.redDress;
+  if (kind === 'bottom') return realClothingPng.jeans;
+  if (kind === 'top') {
+    if (who === 'wed') return realClothingPng.whiteShirt;
+    if (who === 'cat') return n % 2 ? realClothingPng.blackShirt : realClothingPng.checkShirt;
+    return realClothingPng.greyShirt;
+  }
   return garmentSvg(id);
 }
