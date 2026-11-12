@@ -8,7 +8,7 @@ const palettes = {
 
 function svgUrl(body: string, viewBox = '0 0 600 900'): string {
   return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900">' + body + '</svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="' + viewBox + '">' + body + '</svg>'
   );
 }
 
