@@ -4,13 +4,14 @@ type Persona = 'barbie' | 'catwoman' | 'wednesday';
 type Choice = { label: string; detail: string; persona: Persona };
 type Question = { eyebrow: string; title: string; note: string; choices: Choice[] };
 
-const personas: Record<Persona, { name: string; tagline: string; description: string; style: string; palette: string; image: string; quote: string; }> = {
+const personas: Record<Persona, { name: string; tagline: string; description: string; style: string; palette: string; image: string; fallback: string; quote: string; }> = {
   barbie: {
     name: 'BARBIE', tagline: 'The main character energy',
     description: 'Ты умеешь превращать повседневность в маленькое событие. Тебе близки яркие впечатления, открытость и смелое самовыражение. Ты не ждёшь повода сиять — ты сама его создаёшь.',
     style: 'Glamour · Pink accents · Statement details',
     palette: 'Розовый / молочный / сияющий',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1100&q=85',
+    image: 'https://hips.hearstapps.com/hmg-prod/images/actress-margot-robbie-attends-a-press-conference-for-barbie-news-photo-1688748019.jpg?crop=1xw%3A1xh%3Bcenter',
+    fallback: './assets/characters/barbie/pngtree-barbie-doll-in-pink-dress-png-image_18178448.webp',
     quote: 'Жизнь — твой личный подиум. Не забывай занимать центральное место.'
   },
   catwoman: {
@@ -18,7 +19,8 @@ const personas: Record<Persona, { name: string; tagline: string; description: st
     description: 'Ты ценишь свободу, личные границы и право выбирать собственный маршрут. Твоя уверенность не нуждается в громких заявлениях: в ней есть спокойствие, точность и немного загадки.',
     style: 'Power dressing · Total black · Sharp silhouettes',
     palette: 'Чёрный / графит / винный',
-    image: 'https://images.unsplash.com/photo-1769347557807-1fd1bb0d7ba2?auto=format&fit=crop&fm=jpg&q=85&w=1400',
+    image: 'https://i.pinimg.com/originals/cf/d1/14/cfd114de8361fa822cf5c0cdb1f38095.jpg',
+    fallback: './assets/characters/catwoman/catwoman-logo-png_seeklogo-27216.png',
     quote: 'Самое сильное заявление — оставаться верной себе.'
   },
   wednesday: {
@@ -26,7 +28,8 @@ const personas: Record<Persona, { name: string; tagline: string; description: st
     description: 'Ты замечаешь то, что другие пропускают, и не стремишься быть удобной или понятной всем. Тебя привлекают глубина, ирония и необычные решения. Твоя индивидуальность — твоя суперсила.',
     style: 'Dark academia · Monochrome · Unusual accents',
     palette: 'Чёрный / белый / холодный серый',
-    image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=1100&q=85',
+    image: 'https://i.pinimg.com/1200x/19/b4/56/19b45645e9df8be6f88940bdc13a07b0.jpg',
+    fallback: './assets/characters/wednesday/Wednesdayaddamscharacterclipartpng_wednesdaytheaddamsfamilypng.jpg',
     quote: 'Быть не как все — не стратегия. Это твоя естественная настройка.'
   }
 };
@@ -120,7 +123,8 @@ export default function App() {
         <div className="cover-stamp">WHO<br/>ARE<br/><b>YOU?</b></div>
         <div className="cover-caption"><span>THREE ICONS<br/>ONE PERSONALITY TEST</span><span>ISSUE № 01<br/>2026</span></div>
       </div>
-      <div className="cover-side-note">A STUDY IN PERSONAL STYLE — 2026</div>
+      <div className="cover-side-note">A STUDY IN PERSONALITY — 2026</div>
+      <div className="character-intro"><p className="kicker">MEET YOUR THREE ARCHETYPES</p><h2>Кто из них <em>ты?</em></h2><div className="character-intro-grid"><article><b>БАРБИ</b><span>Открытость · оптимизм · яркость</span></article><article><b>ЖЕНЩИНА-КОШКА</b><span>Независимость · смелость · контроль</span></article><article><b>УЭНСДЭЙ</b><span>Наблюдательность · ирония · самобытность</span></article></div></div>
     </section>}
 
     {screen === 'quiz' && <section className="quiz-wrap">
