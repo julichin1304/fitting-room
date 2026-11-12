@@ -1,6 +1,7 @@
 import BrandHeader from '@/components/BrandHeader';
 import { useScreen } from '@/screens/ScreenContext';
 import { CHARACTERS } from '@/data/characters';
+import { characterArt } from '@/data/wardrobe-art';
 import { ArrowRight } from 'lucide-react';
 
 export default function Characters() {
@@ -38,7 +39,7 @@ export default function Characters() {
               >
                 <div className="relative overflow-hidden" style={{ aspectRatio: '2 / 3' }}>
                   <img
-                    src={`assets/characters/${character.id}/base.png`}
+                    src={characterArt(character.id)}
                     alt={character.name}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                     loading="lazy"
