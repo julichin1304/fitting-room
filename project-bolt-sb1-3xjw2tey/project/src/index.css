@@ -130,3 +130,9 @@ button{font:inherit;cursor:pointer}
  .character-intro-grid article{grid-template-columns:1fr;gap:5px}
  .result-image img{padding:7px}
 }
+
+/* Keep the cover caption cleanly below the three-photo collage */
+.cover-caption-below{position:static;grid-column:2;width:100%;align-self:start;background:none;color:#776d66;padding:14px 7px 0;font-size:9px;letter-spacing:.16em;line-height:1.6}
+@media(max-width:760px){
+ .cover-caption-below{grid-column:1;padding:10px 7px 0}
+}
