@@ -10,7 +10,7 @@ const personas: Record<Persona, { name: string; tagline: string; description: st
     description: 'Ты умеешь превращать повседневность в маленькое событие. Тебе близки яркие впечатления, открытость и смелое самовыражение. Ты не ждёшь повода сиять — ты сама его создаёшь.',
     style: 'Glamour · Pink accents · Statement details',
     palette: 'Розовый / молочный / сияющий',
-    image: 'https://hips.hearstapps.com/hmg-prod/images/actress-margot-robbie-attends-a-press-conference-for-barbie-news-photo-1688748019.jpg?crop=1xw%3A1xh%3Bcenter',
+    image: 'https://ilarge.lisimg.com/image/30171030/740full-barbie-screenshot.jpg',
     fallback: './assets/characters/barbie/pngtree-barbie-doll-in-pink-dress-png-image_18178448.webp',
     quote: 'Жизнь — твой личный подиум. Не забывай занимать центральное место.'
   },
@@ -19,7 +19,7 @@ const personas: Record<Persona, { name: string; tagline: string; description: st
     description: 'Ты ценишь свободу, личные границы и право выбирать собственный маршрут. Твоя уверенность не нуждается в громких заявлениях: в ней есть спокойствие, точность и немного загадки.',
     style: 'Power dressing · Total black · Sharp silhouettes',
     palette: 'Чёрный / графит / винный',
-    image: 'https://i.pinimg.com/originals/cf/d1/14/cfd114de8361fa822cf5c0cdb1f38095.jpg',
+    image: 'https://media.stylist.co.uk/app/uploads/2019/04/02105155/gettyimages-607408330-crop-1554198732-1120x1120.jpg',
     fallback: './assets/characters/catwoman/catwoman-logo-png_seeklogo-27216.png',
     quote: 'Самое сильное заявление — оставаться верной себе.'
   },
@@ -28,7 +28,7 @@ const personas: Record<Persona, { name: string; tagline: string; description: st
     description: 'Ты замечаешь то, что другие пропускают, и не стремишься быть удобной или понятной всем. Тебя привлекают глубина, ирония и необычные решения. Твоя индивидуальность — твоя суперсила.',
     style: 'Dark academia · Monochrome · Unusual accents',
     palette: 'Чёрный / белый / холодный серый',
-    image: 'https://i.pinimg.com/1200x/19/b4/56/19b45645e9df8be6f88940bdc13a07b0.jpg',
+    image: 'https://images2.minutemediacdn.com/image/upload/c_fill%2Cw_1200%2Car_4%3A3%2Cf_auto%2Cq_auto%2Cg_auto/images/ImageExchange/mmsport/385/01k1kr2fjjjfc670rdjs.jpg',
     fallback: './assets/characters/wednesday/Wednesdayaddamscharacterclipartpng_wednesdaytheaddamsfamilypng.jpg',
     quote: 'Быть не как все — не стратегия. Это твоя естественная настройка.'
   }
