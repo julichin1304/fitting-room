@@ -113,10 +113,12 @@ export default function App() {
         <button className="primary-button" onClick={start}>ПРОЙТИ ТЕСТ <span>↗</span></button>
         <p className="cover-foot">7 ВОПРОСОВ <i>·</i> 2 МИНУТЫ <i>·</i> 3 РЕЗУЛЬТАТА</p>
       </div>
-      <div className="cover-visual">
-        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=90" alt="Fashion editorial portrait" />
-        <div className="cover-stamp">THE<br/>NEW<br/><b>YOU</b></div>
-        <div className="cover-caption"><span>FASHION IS<br/>AN ATTITUDE</span><span>ISSUE № 01<br/>2026</span></div>
+      <div className="cover-visual cover-trio">
+        <div className="cover-character barbie-cover"><img src={personas.barbie.image} onError={e => { e.currentTarget.src = personas.barbie.fallback; }} alt="Барби"/><span>01 / BARBIE</span></div>
+        <div className="cover-character catwoman-cover"><img src={personas.catwoman.image} onError={e => { e.currentTarget.src = personas.catwoman.fallback; }} alt="Женщина-кошка"/><span>02 / CATWOMAN</span></div>
+        <div className="cover-character wednesday-cover"><img src={personas.wednesday.image} onError={e => { e.currentTarget.src = personas.wednesday.fallback; }} alt="Уэнсдэй"/><span>03 / WEDNESDAY</span></div>
+        <div className="cover-stamp">WHO<br/>ARE<br/><b>YOU?</b></div>
+        <div className="cover-caption"><span>THREE ICONS<br/>ONE PERSONALITY TEST</span><span>ISSUE № 01<br/>2026</span></div>
       </div>
       <div className="cover-side-note">A STUDY IN PERSONAL STYLE — 2026</div>
     </section>}
@@ -139,7 +141,7 @@ export default function App() {
       <div className="result-heading"><p className="kicker">YOUR PERSONALITY, YOUR EDITION</p><h1>ТВОЙ FASHION-<em>ПОРТРЕТ</em></h1></div>
       <div className="result-grid">
         <div className="result-image">
-          {!imageFailed ? <img src={profile.image} alt={'Fashion editorial — ' + profile.name} onError={() => setImageFailed(true)} /> : <div className="image-fallback"><span>{profile.name}</span></div>}
+          <img src={imageFailed ? profile.fallback : profile.image} alt={profile.name} onError={() => setImageFailed(true)} />
           <span className="image-credit">EDITORIAL MOODBOARD · VOGUE DIGITAL</span>
         </div>
         <div className="result-copy">
