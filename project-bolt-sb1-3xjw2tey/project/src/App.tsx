@@ -117,9 +117,9 @@ export default function App() {
         <p className="cover-foot">7 ВОПРОСОВ <i>·</i> 2 МИНУТЫ <i>·</i> 3 РЕЗУЛЬТАТА</p>
       </div>
       <div className="cover-visual cover-trio">
-        <div className="cover-character barbie-cover"><img src={personas.barbie.image} onError={e => { e.currentTarget.src = personas.barbie.fallback; }} alt="Барби"/><span>01 / BARBIE</span></div>
-        <div className="cover-character catwoman-cover"><img src={personas.catwoman.image} onError={e => { e.currentTarget.src = personas.catwoman.fallback; }} alt="Женщина-кошка"/><span>02 / CATWOMAN</span></div>
-        <div className="cover-character wednesday-cover"><img src={personas.wednesday.image} onError={e => { e.currentTarget.src = personas.wednesday.fallback; }} alt="Уэнсдэй"/><span>03 / WEDNESDAY</span></div>
+        <div className="cover-character barbie-cover"><img src={personas.barbie.image} onError={e => { e.currentTarget.style.display = "none"; }} alt="Барби"/><span>01 / BARBIE</span></div>
+        <div className="cover-character catwoman-cover"><img src={personas.catwoman.image} onError={e => { e.currentTarget.style.display = "none"; }} alt="Женщина-кошка"/><span>02 / CATWOMAN</span></div>
+        <div className="cover-character wednesday-cover"><img src={personas.wednesday.image} onError={e => { e.currentTarget.style.display = "none"; }} alt="Уэнсдэй"/><span>03 / WEDNESDAY</span></div>
         <div className="cover-stamp">WHO<br/>ARE<br/><b>YOU?</b></div>
         <div className="cover-caption"><span>THREE ICONS<br/>ONE PERSONALITY TEST</span><span>ISSUE № 01<br/>2026</span></div>
       </div>
@@ -145,7 +145,7 @@ export default function App() {
       <div className="result-heading"><p className="kicker">YOUR PERSONALITY, YOUR EDITION</p><h1>ТВОЙ FASHION-<em>ПОРТРЕТ</em></h1></div>
       <div className="result-grid">
         <div className="result-image">
-          <img src={imageFailed ? profile.fallback : profile.image} alt={profile.name} onError={() => setImageFailed(true)} />
+          <img src={profile.image} alt={profile.name} onError={e => { e.currentTarget.style.display = "none"; }} />
           <span className="image-credit">EDITORIAL MOODBOARD · VOGUE DIGITAL</span>
         </div>
         <div className="result-copy">
