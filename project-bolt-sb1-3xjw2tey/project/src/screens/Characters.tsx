@@ -1,7 +1,7 @@
 import BrandHeader from '@/components/BrandHeader';
 import { useScreen } from '@/screens/ScreenContext';
 import { CHARACTERS } from '@/data/characters';
-import { characterArt } from '@/data/wardrobe-art';
+import { CHARACTER_BASE } from '@/data/wardrobe.generated';
 import { ArrowRight } from 'lucide-react';
 
 export default function Characters() {
@@ -37,11 +37,11 @@ export default function Characters() {
                 onClick={() => go({ id: 'fitting-room', characterId: character.id })}
                 className="group flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900"
               >
-                <div className="relative overflow-hidden" style={{ aspectRatio: '2 / 3' }}>
+                <div className="relative overflow-hidden bg-white" style={{ aspectRatio: '2 / 3' }}>
                   <img
-                    src={characterArt(character.id)}
+                    src={CHARACTER_BASE[character.id]}
                     alt={character.name}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
                     loading="lazy"
                   />
                   <div
