@@ -27,7 +27,7 @@ const personas: Record<Persona, { name: string; tagline: string; description: st
     description: 'Ты ценишь свободу, личные границы и право выбирать собственный маршрут. Твоя уверенность не нуждается в громких заявлениях: в ней есть спокойствие, точность и немного загадки.',
     style: 'Power dressing · Total black · Sharp silhouettes',
     palette: 'Чёрный / графит / винный',
-    image: 'https://images6.alphacoders.com/435/435673.jpg',
+    image: 'https://wl-brightside.cf.tsp.li/resize/728x/jpg/ea7/9c3/7e04985c8fb1c2c037161b6c87.jpg',
     fallback: './assets/characters/catwoman/catwoman-logo-png_seeklogo-27216.png',
     quote: 'Самое сильное заявление — оставаться верной себе.'
   },
@@ -40,7 +40,7 @@ const personas: Record<Persona, { name: string; tagline: string; description: st
     description: 'Ты замечаешь то, что другие пропускают, и не стремишься быть удобной или понятной всем. Тебя привлекают глубина, ирония и необычные решения. Твоя индивидуальность — твоя суперсила.',
     style: 'Dark academia · Monochrome · Unusual accents',
     palette: 'Чёрный / белый / холодный серый',
-    image: 'https://4ab0f3c1-9220-4ed3-9221-ee40d72bacf1.selstorage.ru/2022/12/uensdej-addams-v-plate-alaia-v-4-epizode-woe-what-a-night-seriala-wednesday-foto-2.jpg',
+    image: 'https://media.stylist.co.uk/app/uploads/2022/11/30115107/wednesday-netflix-dance-scene-crop-1669809103-960x960.jpg',
     fallback: './assets/characters/wednesday/Wednesdayaddamscharacterclipartpng_wednesdaytheaddamsfamilypng.jpg',
     quote: 'Быть не как все — не стратегия. Это твоя естественная настройка.'
   }
