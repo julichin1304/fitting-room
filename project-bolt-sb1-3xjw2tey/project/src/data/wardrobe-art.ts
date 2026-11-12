@@ -20,12 +20,17 @@ export function characterArt(id: CharacterId): string {
     : '<path d="M205 205 Q175 65 300 55 Q425 65 395 205 L420 500 Q390 545 360 455 L360 225 Q300 165 240 225 L240 455 Q210 545 180 500Z" fill="' + p.hair + '"/>';
   const ears = id === 'catwoman' ? '<path d="M205 155 L215 55 L275 120 Q300 105 325 120 L385 55 L395 155Z" fill="#17151b"/>' : '';
   const body = '<path d="M245 330 Q300 310 355 330 L380 515 Q365 585 360 610 L370 810 Q372 840 350 842 L325 842 Q310 835 312 810 L300 630 L288 810 Q290 835 270 842 L245 842 Q225 840 230 810 L240 610 Q235 585 220 515Z" fill="' + p.skin + '" stroke="' + p.shadow + '" stroke-width="3"/>';
+  const baseLook = id === 'catwoman'
+    ? '<path d="M238 335 Q300 315 362 335 L350 525 Q370 620 390 805 L325 815 L300 610 L275 815 L210 805 Q230 620 250 525Z" fill="#17151b" stroke="#c6a15b" stroke-width="5"/>'
+    : id === 'barbie'
+    ? '<path d="M238 335 Q300 315 362 335 L350 520 Q375 590 365 650 L235 650 Q225 590 250 520Z" fill="#ed72a2" stroke="#f7d8e5" stroke-width="5"/><path d="M260 340 L300 395 L340 340" fill="none" stroke="#fff2f7" stroke-width="7"/>'
+    : '<path d="M238 335 Q300 315 362 335 L350 520 Q395 625 390 700 Q300 730 210 700 Q205 625 250 520Z" fill="#25262c" stroke="#aeb4c0" stroke-width="5"/>';
   const arms = '<path d="M245 345 Q220 350 207 405 L170 625 Q165 650 183 657 Q200 662 208 640 L270 430Z M355 345 Q380 350 393 405 L430 625 Q435 650 417 657 Q400 662 392 640 L330 430Z" fill="' + p.skin + '" stroke="' + p.shadow + '" stroke-width="3"/>';
   const face = '<ellipse cx="300" cy="205" rx="76" ry="96" fill="' + p.skin + '"/><path d="M265 207 Q278 198 289 207 M311 207 Q322 198 335 207" stroke="#292329" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M288 255 Q300 263 312 255" stroke="#a65e68" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M224 205 Q230 95 300 95 Q370 95 376 205 Q350 155 300 155 Q250 155 224 205Z" fill="' + p.hair + '"/>';
   const collar = id === 'wednesday' ? '<path d="M260 330 L300 390 L340 330 L330 435 L270 435Z" fill="#f6f5f2" stroke="#c4c5ca" stroke-width="4"/>' : '';
   const background = '<rect width="600" height="900" fill="' + bg + '"/><ellipse cx="300" cy="860" rx="155" ry="17" fill="#211c20" opacity=".10"/>';
   const accents = id === 'catwoman' ? '<path d="M230 260 Q300 290 370 260" fill="none" stroke="#17151b" stroke-width="5"/>' : id === 'barbie' ? '<path d="M265 260 Q300 280 335 260" fill="none" stroke="#d56c94" stroke-width="4"/>' : '<path d="M260 260 H340" stroke="#25262c" stroke-width="4"/>';
-  return svgUrl(background + hair + ears + body + arms + collar + face + accents);
+  return svgUrl(background + hair + ears + body + baseLook + arms + collar + face + accents);
 }
 
 function garmentSvg(id: string): string {
